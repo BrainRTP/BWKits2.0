@@ -1,0 +1,25 @@
+berserk:
+  iconItem: DIAMOND_SWORD
+  name: '&cBerserk'
+  description: |
+      Kit - Berserk
+      &7Fuck you
+  cost: 1000
+  permission: 'bwk.berserk'
+  equipment:
+    items:
+      - DIAMOND_SWORD:1 #Item:Ammount
+      - DIRT:64
+    helmet: DIAMOND_HELMET
+    chestplate: DIAMOND_CHESTPLATE
+    leggings: DIAMOND_LEGGINGS
+    boots: DIAMOND_BOOTS
+builder:
+  iconItem: DIRT
+  name: '&cBuilder'
+  description: |
+      Kit - Builder
+      &7Fuck you x2
+  equipment:
+    items:
+    - DIRT:64

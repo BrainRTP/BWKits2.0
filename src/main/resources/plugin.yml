@@ -1,0 +1,6 @@
+name: BWKits
+version: ${project.version}
+main: ru.brainrtp.bwkits.BWKits
+api-version: 1.13
+authors: [BrainRTP]
+description: BWKits
