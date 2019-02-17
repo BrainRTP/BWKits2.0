@@ -40,10 +40,7 @@ public class KitsCmd implements CommandExecutor {
         Player player = (Player) sender;
         for (Game game : BedwarsRel.getInstance().getGameManager().getGames()) {
             if (game.getPlayers().contains(sender)) {
-                System.out.println("BWKits.iconsKitsList ======== ");
-                System.out.println(BWKits.iconsKitsList);
-                System.out.println("BWKits.iconsKitsList ======== ");
-                PlayerKitsMenu.open(player, BWKits.iconsKitsList);
+                PlayerKitsMenu.open(player);
 //                BedWarsRelListeners.playerKit.put((Player) sender, "berserk");
 //                sender.sendMessage(lang.getMsg("kitSelected", true).replace("%s", BedWarsRelListeners.playerKit.get(sender)));
 //                sender.sendMessage("Набор выбран.");

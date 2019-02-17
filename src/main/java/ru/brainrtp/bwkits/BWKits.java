@@ -30,8 +30,6 @@ public final class BWKits extends JavaPlugin {
     private KitsConfig kitsConfig;
 //    private Map<String, List> eq = new HashMap<>();
     public static HashMap<String, Kit> kits = new HashMap<>();
-    public static HashMap<ItemStack, Kit> iconsKits = new HashMap<>();
-    public final static List<ItemStack> iconsKitsList = new ArrayList<>();
 
     @Override
     public void onEnable(){
@@ -54,6 +52,7 @@ public final class BWKits extends JavaPlugin {
                     String kitName = ChatColor.translateAlternateColorCodes('&', configurationSection.getString("name"));
                     String iconItem = configurationSection.getString("iconItem");
                     String permission = configurationSection.getString("permission");
+                    System.out.println("Premission: " + permission);
                     int cost = configurationSection.getInt("cost");
                     List<String> description = (List<String>)configurationSection.getList("description");
 //                    System.out.println(desc);
@@ -101,8 +100,9 @@ public final class BWKits extends JavaPlugin {
                     im.setLore(description);
                     is.setItemMeta(im);
                     Kit kit = new Kit(key, kitName, permission, cost, description, eq, XMaterial.valueOf(iconItem).parseMaterial(), is);
-                    iconsKits.put(is, kit);
-                    iconsKitsList.add(is);
+                    System.out.println(kit.getPermission() != null || kit.getId().equals("builder"));
+//                    iconsKits.put(is, kit);
+//                    iconsKitsList.add(is);
                     kits.put(key, kit);
                 }
             }

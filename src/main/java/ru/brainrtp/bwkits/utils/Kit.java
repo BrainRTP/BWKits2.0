@@ -22,12 +22,12 @@ public class Kit {
     public Kit(String id, String name, String permission, int cost, List<String> description, Map<String, List> equipments, Material icon, ItemStack itemStack) {
         this.itemStack = itemStack;
         this.id = id;
-//        this.name = name;
+        this.name = itemStack.getItemMeta().getDisplayName();
         this.permission = permission;
         this.cost = cost;
-//        this.description = description;
+        this.description = itemStack.getItemMeta().getLore();
         this.equipments = equipments;
-//        this.icon = icon;
+        this.icon = itemStack.getType();
     }
 
     public ItemStack getItemStack() {
