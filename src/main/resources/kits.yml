@@ -1,25 +1,130 @@
-berserk:
-  iconItem: DIAMOND_SWORD
-  name: '&cBerserk'
-  description: |
-      Kit - Berserk
-      &7Fuck you
-  cost: 1000
-  permission: 'bwk.berserk'
+warrior:
+  iconItem: IRON_SWORD
+  name: '&cWarrior'
+  description:
+    - "&7This class made for aggressive gameplay and"
+    - "&7for annihilation, your enemies!"
+    - " "
+    - "&7Kit contains:"
+    - "&e> &fIron Sword"
+    - " "
   equipment:
     items:
-      - DIAMOND_SWORD:1 #Item:Ammount
-      - DIRT:64
-    helmet: DIAMOND_HELMET
-    chestplate: DIAMOND_CHESTPLATE
-    leggings: DIAMOND_LEGGINGS
-    boots: DIAMOND_BOOTS
+      - IRON_SWORD:1 #Item:Ammount
+
+miner:
+  iconItem: IRON_PICKAXE
+  name: '&6Miner'
+  description:
+    - "&7Co-op with Teleporter and your enemies"
+    - "&7won't have chances to win!"
+    - " "
+    - "&7Kit contains:"
+    - "&e> &fIron Pickaxe"
+    - " "
+  permission: 'bwk.warrior'
+  equipment:
+    items:
+      - IRON_PICKAXE:1 #Item:Ammount
+
 builder:
-  iconItem: DIRT
-  name: '&cBuilder'
-  description: |
-      Kit - Builder
-      &7Fuck you x2
+  iconItem: SANDSTONE
+  name: '&aBuilder'
+  description:
+    - "&7Get to the middle quickly!"
+    - " "
+    - "&7Kit contains:"
+    - "&e> &fSandstone &eх64"
+    - " "
   equipment:
     items:
-    - DIRT:64
+      - SANDSTONE:64
+
+tank:
+  iconItem: CHAINMAIL_CHESTPLATE
+  name: '&fTank'
+  description:
+    - "&7Absorbs all damage! That allows your mates to"
+    - "&7destroy the enemies."
+    - " "
+    - "&7Kit contains:"
+    - "&e> &fLeather Helmet"
+    - "&e> &fChain Chestplate"
+    - "&e> &fLeather Leggins"
+    - "&e> &fLeather Boots"
+    - " "
+  equipment:
+    helmet: LEATHER_HELMET
+    chestplate: CHAINMAIL_CHESTPLATE
+    leggings: LEATHER_LEGGINGS
+    boots: LEATHER_BOOTS
+
+defender:
+  iconItem: LEATHER_CHESTPLATE
+  name: '&5Defender'
+  description:
+    - "&7Don't let the enemies to destroy your bed!"
+    - "&7Your team depends on you."
+    - " "
+    - "&7Kit contains:"
+    - "&e> &fLeather Helmet"
+    - "&e> &fLeather Chestplate"
+    - "&e> &fLeather Leggins"
+    - "&e> &fLeather Boots"
+    - "&e> &fWood Sword"
+    - " "
+  equipment:
+    helmet: LEATHER_HELMET
+    chestplate: LEATHER_CHESTPLATE
+    leggings: LEATHER_LEGGINGS
+    boots: LEATHER_BOOTS
+    items:
+      - WOODEN_SWORD:1
+
+teleporter:
+  iconItem: ENDER_PEARL
+  permission: 'bwk.kit.teleporter'
+  name: '&dTeleporter'
+  description:
+    - "&7Just pickup your pickaxe and go to destroy your"
+    - "&7enemies! You can surprise them with it!"
+    - " "
+    - "&7Kit contains:"
+    - "&e> &fEnder Pearl"
+    - " "
+  equipment:
+    items:
+      - ENDER_PEARL:1
+
+resources:
+  iconItem: BRICK
+  permission: 'bwk.kit.resources'
+  name: '&eBonus Resources'
+  description:
+    - "&7In the beginning you can buy what you want and"
+    - "&7start playing without collecting resources!"
+    - " "
+    - "&7Kit contains:"
+    - "&e> &fBronze &ex64"
+    - "&e> &fIron &ex4"
+    - " "
+  equipment:
+    items:
+      - BRICK:64
+      - IRON_INGOT:4
+
+archer:
+  iconItem: BOW
+  permission: 'bwk.kit.archer'
+  name: '&eArcher'
+  description:
+    - "&7Your bow - fear of your enemies! Just aim and..."
+    - " "
+    - "&7Kit contains:"
+    - "&e> &fBow"
+    - "&e> &fArrow &eх32"
+    - " "
+  equipment:
+    items:
+      - BOW:1
+      - ARROW:32

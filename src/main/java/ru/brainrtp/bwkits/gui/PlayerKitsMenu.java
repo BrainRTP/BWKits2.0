@@ -16,20 +16,12 @@ import ru.brainrtp.bwkits.utils.Kit;
 import ru.brainrtp.bwkits.utils.XMaterial;
 import ru.brainrtp.bwkits.yml.LanguageConfig;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 public class PlayerKitsMenu implements Listener {
 
-	private static HashMap<Integer, Menu> invs = new HashMap<>();
 	private static LanguageConfig lang;
 	private static ItemStack resetKit;
-
-//	public PlayerKitsMenu(LanguageConfig lang) {
-//		PlayerKitsMenu.lang = lang;
-//		resetKit = ItemUtils.create(XMaterial.BARRIER.parseMaterial(), ColorUtils.color(lang.getMsg("menu.resetKit", false)));
-//	}
 
 	public static void defineStaticItems(LanguageConfig lang) {
 		PlayerKitsMenu.lang = lang;
@@ -42,7 +34,6 @@ public class PlayerKitsMenu implements Listener {
 		menu.getInventory().setItem(49, resetKit);
 
 		for (Kit kit : BWKits.kits.values()) {
-			ItemStack items = kit.getItemStack();
 			menu.getInventory().setItem(index++, createItem(player, kit));
 		}
 		player.openInventory(menu.getInventory());
@@ -62,12 +53,10 @@ public class PlayerKitsMenu implements Listener {
 				player.sendMessage(lang.getMsg("kitClear", true));
 				BedWarsRelListeners.playerKit.remove(player);
 				player.closeInventory();
-//				MessageManager.sendMessage(player, CSM.getLang().get().getString("successResetSkin"));
 			}
 
 			for(Kit kit : BWKits.kits.values()) {
 				if (item.getType().equals(XMaterial.fromString("GRAY_DYE").parseMaterial())){
-					System.out.println("ыыыы");
 					player.sendMessage(lang.getMsg("kitNoPermission", true));
 					player.closeInventory();
 					return;
@@ -86,35 +75,35 @@ public class PlayerKitsMenu implements Listener {
 		}
 	}
 
-	// TODO: пофиксить баг с тем, что ItemMeta "стакается", а именно - 110-111'ые строчки появляются
-	//  в Lore предмета при каждом открыти. (дубликации lore.add(...))
 	private static ItemStack createItem(Player player, Kit kit){
-		ItemStack itemStack = kit.getItemStack();
+		ItemStack itemStack =  new ItemStack(kit.getItemStack());
 		ItemMeta itemMeta = itemStack.getItemMeta();
-
-		System.out.println("======");
-		System.out.println(kit.getItemStack().getItemMeta());
-		System.out.println("======");
 
 		if (kit.getPermission() != null){
 			if (player.hasPermission(kit.getPermission())){
-				if (BedWarsRelListeners.playerKit.containsKey(player)) {
+				if (BedWarsRelListeners.playerKit.containsKey(player) && kit.getId().equals(BedWarsRelListeners.playerKit.get(player))) {
 					itemStack.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
 					return itemStack;
 				} else {
 					return itemStack;
 				}
+			} else {
+				itemStack.setType(XMaterial.fromString("GRAY_DYE").parseMaterial());
+				itemMeta.setDisplayName(ChatColor.GRAY + itemMeta.getDisplayName());
+				List<String> lore = itemMeta.getLore();
+				lore.add(" ");
+				lore.add(lang.getMsg("kitNoPermission", false));
+				itemMeta.setLore(lore);
+				itemStack.setItemMeta(itemMeta);
+				return itemStack;
 			}
-			return itemStack;
 		} else {
-			itemStack.setType(XMaterial.fromString("GRAY_DYE").parseMaterial());
-			itemMeta.setDisplayName(ChatColor.GRAY + itemMeta.getDisplayName());
-			List<String> lore = itemMeta.getLore();
-			lore.add(" ");
-			lore.add(lang.getMsg("kitNoPermission", false));
-			itemMeta.setLore(lore);
-			itemStack.setItemMeta(itemMeta);
-			return itemStack;
+			if (BedWarsRelListeners.playerKit.containsKey(player) && kit.getId().equals(BedWarsRelListeners.playerKit.get(player))) {
+				itemStack.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
+				return itemStack;
+			} else {
+				return itemStack;
+			}
 		}
 	}
 //	@EventHandler

@@ -1,14 +1,27 @@
+#╔══╗╔╗╔╗╔╦╗╔═╦══╦════╦═══╗╔═══╗╔═══╗
+#║╔╗║║║║║║║║║╔╩╣╠╣╔╗╔╗║╔═╗║║╔═╗║║╔═╗║
+#║╚╝╚╣║║║║║╚╝╝─║║╚╝║║╚╣╚══╗╚╝╔╝║║║║║║
+#║╔═╗║╚╝╚╝║╔╗║─║║──║║─╚══╗║╔═╝╔╝║║║║║
+#║╚═╝╠╗╔╗╔╣║║╚╦╣╠╗─║║─║╚═╝║║║╚═╦╣╚═╝║
+#╚═══╝╚╝╚╝╚╝╚═╩══╝─╚╝─╚═══╝╚═══╩╩═══╝
+#======= BWKits2.0 by BrainRTP ======#
+#/bwk - Opens kit selector.[Uses to chose kits.yml] (bwk.player)
+#/bwr - Reloading config. (bwk.reload)
+#=================================#
 prefix: "&c[&fBWKits&c] &f> "
 permissionDeny: "&cYou don't have permission to do this."
 kitSelected: "&aKit &c%s &aselected!"
 kitClear: "&aKit clear"
-kitAlreadySelected: "&aKit &c%s &aalready selected!"
-kitNotAvalible: "&cKit &4%s &cnot avalible!"
-kitNoPermission: "Buy this kit on www.site.com"
-purchaseComplete: "&aKit successfully purchased!"
-purchaseNoMoney: "&cNot enough money to purchase this kit."
-purchaseNoPermission: "&cYou don't have permission to purchase this kit."
+kitNotAvalible: "&cKit &4%s &cnot available!"
 notInGame: "&cYou're not in the game."
-kitRecived: "Выдан набор - %s"
+kitRecived: "&eSelected kit: %s"
+reloadSuccess: "&aPlugin has been successfully reloaded!"
+# ===== Menu Message =====
 menuResetKit: "Reset kit"
 menuTitle: "BWKits"
+kitNoPermission: "&cBuy this kit on www.site.com"
+# ===== Coming Soon =====
+#purchaseComplete: "&aKit successfully purchased!"
+#purchaseNoMoney: "&cNot enough money to purchase this kit."
+#purchaseNoPermission: "&cYou don't have permission to purchase this kit."
+#kitAlreadySelected: "&aKit &c%s &aalready selected!"

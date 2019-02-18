@@ -6,15 +6,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import ru.brainrtp.bwkits.BWKits;
-//import ru.brainrtp.bwkits.gui.PlayerKitsMenu;
-//import ru.brainrtp.bwkits.gui.KitsGuiManager;
 import ru.brainrtp.bwkits.gui.PlayerKitsMenu;
-import ru.brainrtp.bwkits.listeners.BedWarsRelListeners;
 import ru.brainrtp.bwkits.yml.LanguageConfig;
-
-import java.util.List;
 
 public class KitsCmd implements CommandExecutor {
 
@@ -36,20 +30,14 @@ public class KitsCmd implements CommandExecutor {
             sender.sendMessage(lang.getMsg("permissionDeny", true));
             return true;
         }
-//        if (BedwarsRel.getInstance().getGameManager().getGames())
         Player player = (Player) sender;
         for (Game game : BedwarsRel.getInstance().getGameManager().getGames()) {
             if (game.getPlayers().contains(sender)) {
                 PlayerKitsMenu.open(player);
-//                BedWarsRelListeners.playerKit.put((Player) sender, "berserk");
-//                sender.sendMessage(lang.getMsg("kitSelected", true).replace("%s", BedWarsRelListeners.playerKit.get(sender)));
-//                sender.sendMessage("Набор выбран.");
                 return false;
             }
         }
         sender.sendMessage(lang.getMsg("notInGame", true));
-//        sender.sendMessage("Тебя нет в игре!");
-//        PlayerKitsMenu.open((Player)sender, KitsGuiManager.getHeadsInStorage((Player)sender));
 
         return true;
     }

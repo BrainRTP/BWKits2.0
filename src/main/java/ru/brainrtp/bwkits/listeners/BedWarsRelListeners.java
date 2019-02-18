@@ -75,4 +75,5 @@ public class BedWarsRelListeners implements Listener {
             playerKit.remove(event.getPlayer());
         }
     }
+
 }
